@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+- phpMyAdmin XML Dump
+- version 4.7.0
+- https://www.phpmyadmin.net
+-
+- Hôte : 127.0.0.1
+- Généré le :  mer. 15 juin 2022 à 15:36
+- Version du serveur :  5.7.17
+- Version de PHP :  5.6.30
+-->
+
+<pma_xml_export version="1.0">
+    <!--
+    - Base de données :  'm2l'
+    -->
+    <database name="m2l">
+        <!-- Table salle -->
+        <table name="salle">
+            <column name="id">1</column>
+            <column name="salle_nom">Daum</column>
+            <column name="categorie">1</column>
+        </table>
+        <table name="salle">
+            <column name="id">2</column>
+            <column name="salle_nom">Corbin</column>
+            <column name="categorie">1</column>
+        </table>
+        <table name="salle">
+            <column name="id">3</column>
+            <column name="salle_nom">Baccarat</column>
+            <column name="categorie">1</column>
+        </table>
+        <table name="salle">
+            <column name="id">4</column>
+            <column name="salle_nom">Longwy</column>
+            <column name="categorie">1</column>
+        </table>
+        <table name="salle">
+            <column name="id">5</column>
+            <column name="salle_nom">Multimédia</column>
+            <column name="categorie">2</column>
+        </table>
+        <table name="salle">
+            <column name="id">6</column>
+            <column name="salle_nom">Amphithéâtre</column>
+            <column name="categorie">3</column>
+        </table>
+        <table name="salle">
+            <column name="id">7</column>
+            <column name="salle_nom">Lamour</column>
+            <column name="categorie">1</column>
+        </table>
+        <table name="salle">
+            <column name="id">8</column>
+            <column name="salle_nom">Grüber</column>
+            <column name="categorie">1</column>
+        </table>
+        <table name="salle">
+            <column name="id">9</column>
+            <column name="salle_nom">Majorelle</column>
+            <column name="categorie">1</column>
+        </table>
+        <table name="salle">
+            <column name="id">10</column>
+            <column name="salle_nom">Salle de restauration</column>
+            <column name="categorie">1</column>
+        </table>
+        <table name="salle">
+            <column name="id">11</column>
+            <column name="salle_nom">Galerie</column>
+            <column name="categorie">1</column>
+        </table>
+        <table name="salle">
+            <column name="id">12</column>
+            <column name="salle_nom">Salle informatique</column>
+            <column name="categorie">2</column>
+        </table>
+        <table name="salle">
+            <column name="id">13</column>
+            <column name="salle_nom">Hall d'accueil</column>
+            <column name="categorie">3</column>
+        </table>
+        <table name="salle">
+            <column name="id">14</column>
+            <column name="salle_nom">Gallé</column>
+            <column name="categorie">1</column>
+        </table>
+    </database>
+</pma_xml_export>
