@@ -1,18 +1,23 @@
 import model.Utilisateur;
+import repository.UtilisateurRepository;
+import repository.SalleRepository;
+import model.Salle;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        Utilisateur utilisateur1 = new Utilisateur(
-                1,
-                "BANDILELLA",
-                "CLEMENT",
-                1,
-                "Ligue Volley Ball Lorraine",
-                "30, rue Widric 1er 54600 Villers lès Nancy",
-                "cbandilella@llgvolleyball.fr",
-                0.0
-        );
+        try {
+            List<Utilisateur> utilisateurs = UtilisateurRepository.getTousLesUtilisateurs();
+            for (Utilisateur u : utilisateurs) {
+                System.out.println(u);
+            }
 
-        System.out.println(utilisateur1);
+            List<Salle> salles = SalleRepository.getToutesLesSalles();
+            for (Salle s : salles) {
+                System.out.println(s);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
