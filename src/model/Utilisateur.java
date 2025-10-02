@@ -21,34 +21,6 @@ public class Utilisateur {
         this.categorieTarif = categorieTarif;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public String getNom() {
-        return nom;
-    }
-
-    public String getPrenom() {
-        return prenom;
-    }
-
-    public int getStructureId() {
-        return structureId;
-    }
-
-    public String getStructureNom() {
-        return structureNom;
-    }
-
-    public String getStructureAdresse() {
-        return structureAdresse;
-    }
-
-    public String getMail() {
-        return mail;
-    }
-
     public double getCategorieTarif() {
         return categorieTarif;
     }

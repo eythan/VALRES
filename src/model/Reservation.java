@@ -1,49 +1,58 @@
 package model;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import model.Salle;
+
 public class Reservation {
     private int id;
-    private Utilisateur utilisateur;
-    private Salle salle;
-    private String date;
+    private int utilisateurId;
+    private String nom;
+    private String prenom;
+    private int structureId;
+    private String structureNom;
+    private String structureAdresse;
+    private String mail;
+    private int salleId;
+    private LocalDateTime date;
     private int periode;
     private double montant;
 
-    public Reservation(int id, Utilisateur utilisateur, Salle salle, String date, int periode) {
+    public Reservation(int id, int utilisateurId, String nom, String prenom, int structureId, String structureNom,
+                       String structureAdresse, String mail, int salleId, LocalDateTime date, int periode) {
         this.id = id;
-        this.utilisateur = utilisateur;
-        this.salle = salle;
+        this.utilisateurId = utilisateurId;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.structureId = structureId;
+        this.structureNom = structureNom;
+        this.structureAdresse = structureAdresse;
+        this.mail = mail;
+        this.salleId = salleId;
         this.date = date;
         this.periode = periode;
-        this.montant = calculerMontant();
     }
 
-    public int getId() {
-        return id;
+    public double calculerMontant(Salle salle) {
+        this.montant = salle.calculerTarifFinal() * periode;
+        return this.montant;
     }
 
-    public Utilisateur getUtilisateur() {
-        return utilisateur;
+    @Override
+    public String toString() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        return "Reservation{" +
+                "id=" + id +
+                ", utilisateurId=" + utilisateurId +
+                ", nom='" + nom + '\'' +
+                ", prenom='" + prenom + '\'' +
+                ", structureId=" + structureId +
+                ", structureNom='" + structureNom + '\'' +
+                ", structureAdresse='" + structureAdresse + '\'' +
+                ", mail='" + mail + '\'' +
+                ", salleId=" + salleId +
+                ", date=" + date.format(formatter) +
+                ", periode=" + periode +
+                '}';
     }
-
-    public Salle getSalle() {
-        return salle;
-    }
-
-    public double getMontant() {
-        return montant;
-    }
-
-    public int getPeriode() {
-        return periode;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public double calculerMontant() {
-        return salle.getTarifBase() * utilisateur.getCategorieTarif();
-    }
-
-
 }

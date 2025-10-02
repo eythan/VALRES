@@ -29,7 +29,7 @@ public class SalleRepository {
                 String nom = elem.getElementsByTagName("column").item(1).getTextContent();
                 int categorie = Integer.parseInt(elem.getElementsByTagName("column").item(2).getTextContent());
 
-                double tarifBase = 10.0;
+                double tarifBase = 50.0;
                 LesSalles.add(new Salle(id, nom, categorie, tarifBase));
             }
         }

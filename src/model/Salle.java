@@ -13,24 +13,17 @@ public class Salle {
         this.tarifBase = tarifBase;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public String getNom() {
-        return nom;
-    }
-
     public double getTarifBase() {
         return tarifBase;
     }
 
-    public int getCategorie() {
-        return categorie;
-    }
-
-    public void setTarifBase(double tarifBase) {
-        this.tarifBase = tarifBase;
+    public double calculerTarifFinal() {
+        switch (categorie) {
+            case 1: return tarifBase; // Tarif de base pour les salles
+            case 2: return tarifBase * 1.5; // Majoré de 50% pour les salles multimédia / Informatique
+            case 3: return tarifBase * 2.0; // Majoré de 100% pour l'amphithéâtre / Hall d'accueil
+            default: return tarifBase;
+        }
     }
 
     @Override
@@ -40,6 +33,7 @@ public class Salle {
                 ", nom='" + nom + '\'' +
                 ", categorie=" + categorie +
                 ", tarifBase=" + tarifBase +
+                ", tarifFinal=" + calculerTarifFinal() +
                 '}';
     }
 }
