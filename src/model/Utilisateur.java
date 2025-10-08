@@ -1,6 +1,8 @@
 package model;
 
-public class Utilisateur {
+import java.io.Serializable;
+
+public class Utilisateur implements Serializable {
     private int id;
     private String nom;
     private String prenom;
@@ -23,6 +25,34 @@ public class Utilisateur {
 
     public double getCategorieTarif() {
         return categorieTarif;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public int getStructureId() {
+        return structureId;
+    }
+
+    public String getStructureNom() {
+        return structureNom;
+    }
+
+    public String getStructureAdresse() {
+        return structureAdresse;
+    }
+
+    public String getMail() {
+        return mail;
     }
 
     @Override

@@ -8,6 +8,7 @@ import org.w3c.dom.NodeList;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +19,7 @@ public class SalleRepository {
 
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
-        Document document = builder.parse(new File("\\\\sio-fic\\LeNAS\\Perso\\francee\\Documents\\VALRES\\src\\ressource\\salle.xml"));
+        Document document = builder.parse(new File("src/ressource/salle.xml"));
 
         NodeList nodeList = document.getElementsByTagName("table");
         for (int i = 0; i < nodeList.getLength(); i++) {
@@ -35,4 +36,12 @@ public class SalleRepository {
         }
         return LesSalles;
     }
+    public static void saveSalles(List<Salle> salles) throws IOException, IOException {
+        SerializationManager.saveList(salles, "data/salle.ser");
+    }
+
+    public static List<Salle> loadSalles() throws IOException, ClassNotFoundException {
+        return SerializationManager.loadList("data/salle.ser");
+    }
+
 }

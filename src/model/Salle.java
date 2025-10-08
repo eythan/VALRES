@@ -1,6 +1,8 @@
 package model;
 
-public class Salle {
+import java.io.Serializable;
+
+public class Salle implements Serializable {
     private int id;
     private String nom;
     private int categorie;
@@ -11,6 +13,18 @@ public class Salle {
         this.nom = nom;
         this.categorie = categorie;
         this.tarifBase = tarifBase;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public int getCategorie() {
+        return categorie;
     }
 
     public double getTarifBase() {

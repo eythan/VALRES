@@ -1,28 +1,26 @@
-import model.Utilisateur;
-import model.Salle;
 import model.Reservation;
-import repository.UtilisateurRepository;
-import repository.SalleRepository;
+import model.Salle;
+import model.Utilisateur;
 import repository.ReservationRepository;
+import repository.SalleRepository;
+import repository.UtilisateurRepository;
+
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
         try {
-            List<Utilisateur> utilisateurs = UtilisateurRepository.getTousLesUtilisateurs();
-            for (Utilisateur u : utilisateurs) {
-                System.out.println(u);
-            }
-
+            // 🔹 1. Charger depuis les fichiers XML
+            List<Reservation> reservations = ReservationRepository.getToutesLesReservations();
             List<Salle> salles = SalleRepository.getToutesLesSalles();
-            for (Salle s : salles) {
-                System.out.println(s);
-            }
+            List<Utilisateur> utilisateurs = UtilisateurRepository.getTousLesUtilisateurs();
 
-            List<Reservation> Reservations = ReservationRepository.getToutesLesReservations();
-            for (Reservation r : Reservations) {
-                System.out.println(r);
-            }
+            // 🔹 2. Sérialiser ces listes vers le dossier data/
+            ReservationRepository.saveReservations(reservations);
+            SalleRepository.saveSalles(salles);
+            UtilisateurRepository.saveUtilisateurs(utilisateurs);
+
+            System.out.println("✅ Sérialisation terminée avec succès !");
         } catch (Exception e) {
             e.printStackTrace();
         }

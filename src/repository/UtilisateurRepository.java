@@ -13,6 +13,7 @@ import org.w3c.dom.NodeList;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,7 +25,7 @@ public class UtilisateurRepository {
 
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
-        Document document = builder.parse(new File("\\\\sio-fic\\LeNAS\\Perso\\francee\\Documents\\VALRES\\src\\ressource\\utilisateur.xml"));
+        Document document = builder.parse(new File("src/ressource/utilisateur.xml"));
 
         NodeList nodeList = document.getDocumentElement().getChildNodes();
         for (int i = 0; i < nodeList.getLength(); i++) {
@@ -56,4 +57,12 @@ public class UtilisateurRepository {
         }
         return lesUtilisateurs;
     }
+    public static void saveUtilisateurs(List<Utilisateur> utilisateurs) throws IOException {
+        SerializationManager.saveList(utilisateurs, "data/utilisateurs.ser");
+    }
+
+    public static List<Utilisateur> loadUtilisateurs() throws IOException, ClassNotFoundException, IOException {
+        return SerializationManager.loadList("data/utilisateurs.ser");
+    }
+
 }

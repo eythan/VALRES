@@ -1,10 +1,11 @@
 package model;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import model.Salle;
 
-public class Reservation {
+public class Reservation implements Serializable {
     private int id;
     private int utilisateurId;
     private String nom;
@@ -38,6 +39,54 @@ public class Reservation {
         return this.montant;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public int getUtilisateurId() {
+        return utilisateurId;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public int getStructureId() {
+        return structureId;
+    }
+
+    public String getStructureNom() {
+        return structureNom;
+    }
+
+    public String getStructureAdresse() {
+        return structureAdresse;
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public int getSalleId() {
+        return salleId;
+    }
+
+    public LocalDateTime getDate() {
+        return date;
+    }
+
+    public int getPeriode() {
+        return periode;
+    }
+
+    public double getMontant() {
+        return montant;
+    }
+
     @Override
     public String toString() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
@@ -54,5 +103,6 @@ public class Reservation {
                 ", date=" + date.format(formatter) +
                 ", periode=" + periode +
                 '}';
+
     }
 }

@@ -9,6 +9,7 @@ import org.w3c.dom.NodeList;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -50,4 +51,12 @@ public class ReservationRepository {
 
         return reservations;
     }
+    public static void saveReservations(List<Reservation> reservations) throws IOException, IOException {
+        SerializationManager.saveList(reservations, "data/reservations.ser");
+    }
+
+    public static List<Reservation> loadReservations() throws IOException, ClassNotFoundException {
+        return SerializationManager.loadList("data/reservations.ser");
+    }
+
 }
