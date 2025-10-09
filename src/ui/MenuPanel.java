@@ -1,7 +1,11 @@
 package ui;
 
+import model.Reservation;
+import model.Salle;
+
 import javax.swing.*;
 import java.awt.*;
+import java.util.List;
 
 public class MenuPanel extends JPanel {
 
@@ -33,7 +37,19 @@ public class MenuPanel extends JPanel {
 
         // Bouton PDF (placeholder)
         btnPDF.addActionListener(e -> {
-            JOptionPane.showMessageDialog(this, "📄 PDF généré !");
+            try {
+                java.util.List<Reservation> reservations = repository.ReservationRepository.loadReservations();
+                java.util.List<Salle> salles = repository.SalleRepository.loadSalles();
+
+                int semaine = 23;
+                model.Bordereau bordereau = new model.Bordereau(reservations, salles, semaine);
+
+                util.PDFGenerator.genererPDF(bordereau, "data/bordereau.pdf");
+                JOptionPane.showMessageDialog(this, "📄 PDF généré !");
+            } catch (Exception ex) {
+                ex.printStackTrace();
+                JOptionPane.showMessageDialog(this, "Erreur lors de la génération du PDF : " + ex.getMessage());
+            }
         });
     }
 }
